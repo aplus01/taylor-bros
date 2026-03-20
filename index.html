@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taylor Brothers Construction</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,700,0,0"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bg: "var(--bg)",
+              "bg-alt": "var(--bg-alt)",
+              "text-primary": "var(--text-primary)",
+              "text-alt": "var(--text-alt)",
+              accent: "var(--accent)",
+              "btn-text": "var(--btn-text)",
+            },
+            fontFamily: {
+              heading: ['"Bebas Neue"', "sans-serif"],
+              body: [
+                "-apple-system",
+                "BlinkMacSystemFont",
+                '"SF Pro Text"',
+                '"Inter"',
+                "sans-serif",
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        --bg: #f2f5f7;
+        --bg-alt: #e6edf2;
+        --text-primary: #2e2e2e;
+        --text-alt: #2f4858;
+        --accent: #c56a2d;
+        --btn-text: #e6edf2;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      [id] {
+        scroll-margin-top: 75px;
+      }
+
+      #top {
+        scroll-margin-top: 0px;
+      }
+
+      .hero-overlay {
+        background-color: var(--bg-alt);
+        opacity: 0.88;
+      }
+
+      .photo-hover-overlay {
+        background-color: var(--bg-alt);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .photo-item:hover .photo-hover-overlay {
+        opacity: 0.88;
+      }
+
+      .photo-item:hover {
+        cursor: pointer;
+      }
+
+      /* Lightbox */
+      .lightbox {
+        display: none;
+      }
+      .lightbox.active {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body id="top" class="font-body text-text-primary bg-bg-alt">
+    <!-- Header -->
+    <header class="bg-bg sticky top-0 z-50 px-4">
+      <div
+        class="max-w-[1440px] mx-auto flex flex-wrap items-center justify-between py-4 gap-3"
+      >
+        <!-- Mobile menu button -->
+        <button
+          id="menu-toggle"
+          class="bg-accent text-btn-text p-2.5 rounded-[5px] font-bold uppercase text-base md:hidden"
+        >
+          <span class="material-symbols-sharp text-base leading-none"
+            >menu</span
+          >
+        </button>
+
+        <!-- Logo -->
+        <a
+          href="#top"
+          class="font-heading text-2xl uppercase tracking-wide flex gap-1 items-center no-underline"
+        >
+          <span class="text-text-alt">Taylor Brothers</span>
+          <span class="text-accent">Construction</span>
+        </a>
+
+        <!-- Nav links (desktop) -->
+        <nav id="nav-links" class="hidden md:flex items-center max-w-[800px]">
+          <a
+            href="#about"
+            class="px-4 font-heading text-[32px] uppercase text-accent hover:text-text-alt transition-colors leading-none"
+            >Who We Are</a
+          >
+          <a
+            href="#services"
+            class="px-4 font-heading text-[32px] uppercase text-accent hover:text-text-alt transition-colors leading-none"
+            >What We Do</a
+          >
+          <a
+            href="#work"
+            class="px-4 font-heading text-[32px] uppercase text-accent hover:text-text-alt transition-colors leading-none"
+            >Our Work</a
+          >
+          <a
+            href="#contact"
+            class="px-4 font-heading text-[32px] uppercase text-accent hover:text-text-alt transition-colors leading-none"
+            >Get in Touch</a
+          >
+        </nav>
+
+        <!-- Right side: phone + CTA -->
+        <div class="flex items-center gap-5">
+          <a
+            href="tel:9194016089"
+            class="font-bold text-base text-text-alt whitespace-nowrap hidden sm:block"
+            >919.401.6089</a
+          >
+          <a
+            href="https://www.payerexpress.com/ebp/TBCREMODEL/"
+            target="_blank"
+            class="bg-accent text-btn-text font-bold text-base uppercase px-3 py-2.5 rounded-[5px] hover:opacity-90 transition-opacity whitespace-nowrap"
+            >Pay Invoice</a
+          >
+        </div>
+      </div>
+
+      <!-- Mobile nav dropdown -->
+      <nav
+        id="mobile-nav"
+        class="hidden md:hidden flex-col items-start gap-2 pb-4"
+      >
+        <a
+          href="#about"
+          class="font-heading text-2xl uppercase text-accent hover:text-text-alt transition-colors py-1"
+          >Who We Are</a
+        >
+        <a
+          href="#services"
+          class="font-heading text-2xl uppercase text-accent hover:text-text-alt transition-colors py-1"
+          >What We Do</a
+        >
+        <a
+          href="#work"
+          class="font-heading text-2xl uppercase text-accent hover:text-text-alt transition-colors py-1"
+          >Our Work</a
+        >
+        <a
+          href="#contact"
+          class="font-heading text-2xl uppercase text-accent hover:text-text-alt transition-colors py-1"
+          >Get in Touch</a
+        >
+        <a
+          href="tel:9194016089"
+          class="font-bold text-base text-text-alt py-1 sm:hidden"
+          >919.401.6089</a
+        >
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section
+      class="relative h-[600px] flex items-center justify-center px-4 overflow-hidden"
+    >
+      <img
+        src="images/205 New Castle Pl 2667898_03.jpg"
+        alt="Kitchen remodel showcase"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div class="relative flex flex-col gap-2.5 items-center p-10">
+        <div class="hero-overlay absolute inset-0"></div>
+        <h1
+          class="relative font-heading text-[64px] text-center uppercase leading-[64px]"
+        >
+          <span class="text-accent">If it can be done,</span><br />
+          <span class="text-text-alt">we can do it.</span>
+        </h1>
+        <p class="relative text-base text-text-primary text-center">
+          Durham's Trusted Home Remodeling Experts
+        </p>
+      </div>
+    </section>
+
+    <!-- About / Who We Are -->
+    <section id="about" class="bg-bg flex flex-col items-center px-4 py-16">
+      <div
+        class="border-l-4 border-accent flex flex-col gap-5 items-start max-w-[800px] w-full px-10"
+      >
+        <h2
+          class="font-heading text-[32px] text-text-alt uppercase leading-normal"
+        >
+          Who We Are
+        </h2>
+        <p class="text-base leading-6 text-text-primary">
+          Taylor Brothers Construction, LLC (TBC Remodeling) is dedicated to
+          providing quality work with quality materials in a timely fashion for
+          a competitive price. Each home is treated as if it were our own, and
+          we believe all work should exceed owner expectations with input
+          throughout the project.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services / What We Do -->
+    <section
+      id="services"
+      class="bg-bg-alt flex flex-col gap-6 items-center px-4 py-16"
+    >
+      <div class="flex items-start justify-center max-w-[800px] w-full">
+        <h2
+          class="font-heading text-[32px] text-text-alt uppercase leading-normal flex-1"
+        >
+          What We Do
+        </h2>
+      </div>
+      <div
+        class="flex flex-wrap gap-5 items-start justify-center max-w-[800px] w-full"
+      >
+        <div
+          class="bg-bg border-l-4 border-accent flex flex-col gap-2.5 flex-1 min-w-[160px] p-5"
+        >
+          <h3
+            class="font-heading text-xl text-text-alt uppercase leading-normal"
+          >
+            Kitchen remodeling
+          </h3>
+          <p class="text-base leading-6 text-text-primary">
+            Complete kitchen renovations and upgrades
+          </p>
+        </div>
+        <div
+          class="bg-bg border-l-4 border-accent flex flex-col gap-2.5 flex-1 min-w-[160px] p-5"
+        >
+          <h3
+            class="font-heading text-xl text-text-alt uppercase leading-normal"
+          >
+            Bathroom
+          </h3>
+          <p class="text-base leading-6 text-text-primary">
+            Beautiful, functional bathroom transformations
+          </p>
+        </div>
+        <div
+          class="bg-bg border-l-4 border-accent flex flex-col gap-2.5 flex-1 min-w-[160px] p-5"
+        >
+          <h3
+            class="font-heading text-xl text-text-alt uppercase leading-normal"
+          >
+            Interior renovations
+          </h3>
+          <p class="text-base leading-6 text-text-primary">
+            Living spaces, bedrooms, and home offices
+          </p>
+        </div>
+        <div
+          class="bg-bg border-l-4 border-accent flex flex-col gap-2.5 flex-1 min-w-[160px] p-5"
+        >
+          <h3
+            class="font-heading text-xl text-text-alt uppercase leading-normal"
+          >
+            Exterior work
+          </h3>
+          <p class="text-base leading-6 text-text-primary">
+            Siding, decks, and outdoor improvements
+          </p>
+        </div>
+        <div
+          class="bg-bg border-l-4 border-accent flex flex-col gap-2.5 flex-1 min-w-[160px] p-5"
+        >
+          <h3
+            class="font-heading text-xl text-text-alt uppercase leading-normal"
+          >
+            Custom carpentry
+          </h3>
+          <p class="text-base leading-6 text-text-primary">
+            Built-ins, trim work, and custom features
+          </p>
+        </div>
+        <div
+          class="bg-bg border-l-4 border-accent flex flex-col gap-2.5 flex-1 min-w-[160px] p-5"
+        >
+          <h3
+            class="font-heading text-xl text-text-alt uppercase leading-normal"
+          >
+            Home additions
+          </h3>
+          <p class="text-base leading-6 text-text-primary">
+            Expand your living space with quality additions
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Work / Photos -->
+    <section
+      id="work"
+      class="bg-bg flex flex-col gap-6 items-center px-4 py-16"
+    >
+      <div class="flex items-start justify-center max-w-[800px] w-full">
+        <h2
+          class="font-heading text-[32px] text-text-alt uppercase leading-normal flex-1"
+        >
+          Our Work
+        </h2>
+      </div>
+      <div
+        class="flex flex-wrap gap-5 items-start justify-center max-w-[800px] w-full"
+      >
+        <div
+          class="photo-item relative flex-1 min-w-[256px] overflow-hidden"
+          onclick="openLightbox(0)"
+        >
+          <img
+            src="images/nook.jpeg"
+            alt="Kitchen nook"
+            class="w-full aspect-[4/3] object-cover"
+          />
+          <div
+            class="photo-hover-overlay absolute inset-0 flex items-center justify-center"
+          >
+            <span class="material-symbols-sharp text-[64px] text-accent"
+              >zoom_in</span
+            >
+          </div>
+        </div>
+        <div
+          class="photo-item relative flex-1 min-w-[256px] overflow-hidden"
+          onclick="openLightbox(1)"
+        >
+          <img
+            src="images/kitchen.jpeg"
+            alt="Kitchen remodel"
+            class="w-full aspect-[4/3] object-cover"
+          />
+          <div
+            class="photo-hover-overlay absolute inset-0 flex items-center justify-center"
+          >
+            <span class="material-symbols-sharp text-[64px] text-accent"
+              >zoom_in</span
+            >
+          </div>
+        </div>
+        <div
+          class="photo-item relative flex-1 min-w-[256px] overflow-hidden"
+          onclick="openLightbox(2)"
+        >
+          <img
+            src="images/hood.jpeg"
+            alt="Kitchen hood"
+            class="w-full aspect-[4/3] object-cover"
+          />
+          <div
+            class="photo-hover-overlay absolute inset-0 flex items-center justify-center"
+          >
+            <span class="material-symbols-sharp text-[64px] text-accent"
+              >zoom_in</span
+            >
+          </div>
+        </div>
+        <div
+          class="photo-item relative flex-1 min-w-[256px] overflow-hidden"
+          onclick="openLightbox(3)"
+        >
+          <img
+            src="images/counters.jpeg"
+            alt="Kitchen counters"
+            class="w-full aspect-[4/3] object-cover"
+          />
+          <div
+            class="photo-hover-overlay absolute inset-0 flex items-center justify-center"
+          >
+            <span class="material-symbols-sharp text-[64px] text-accent"
+              >zoom_in</span
+            >
+          </div>
+        </div>
+      </div>
+      <button
+        class="bg-accent text-btn-text font-bold text-base uppercase px-3 py-2.5 rounded-[5px] hover:opacity-90 transition-opacity"
+      >
+        Show More
+      </button>
+    </section>
+
+    <!-- Lightbox -->
+    <div
+      id="lightbox"
+      class="lightbox fixed inset-0 z-[100] bg-bg-alt/95 flex-col items-center justify-center p-6"
+      onclick="closeLightbox(event)"
+    >
+      <button
+        onclick="closeLightbox(event, true)"
+        class="absolute top-6 right-6 bg-accent text-btn-text p-2.5 rounded-[5px] font-bold z-10"
+      >
+        <span class="material-symbols-sharp text-base leading-none">close</span>
+      </button>
+      <button
+        id="lb-prev"
+        onclick="prevImage(event)"
+        class="absolute left-6 top-1/2 -translate-y-1/2 bg-accent text-btn-text p-2.5 rounded-[5px] font-bold z-10"
+      >
+        <span class="material-symbols-sharp text-base leading-none"
+          >chevron_left</span
+        >
+      </button>
+      <button
+        id="lb-next"
+        onclick="nextImage(event)"
+        class="absolute right-6 top-1/2 -translate-y-1/2 bg-accent text-btn-text p-2.5 rounded-[5px] font-bold z-10"
+      >
+        <span class="material-symbols-sharp text-base leading-none"
+          >chevron_right</span
+        >
+      </button>
+      <img
+        id="lb-image"
+        src=""
+        alt=""
+        class="max-h-[80vh] max-w-full object-contain rounded"
+      />
+      <!-- Thumbnail strip -->
+      <div
+        id="lb-thumbnails"
+        class="flex gap-2 mt-4 overflow-x-auto max-w-full py-2"
+      ></div>
+    </div>
+
+    <!-- Contact / Get in Touch -->
+    <section
+      id="contact"
+      class="bg-bg-alt flex flex-col gap-6 items-center px-4 py-16"
+    >
+      <div class="flex items-start justify-center max-w-[800px] w-full">
+        <h2
+          class="font-heading text-[32px] text-text-alt uppercase leading-normal flex-1"
+        >
+          Get in Touch
+        </h2>
+      </div>
+      <div
+        class="flex flex-col gap-2 items-start max-w-[800px] w-full text-base text-text-primary"
+      >
+        <p class="font-bold uppercase">Phone</p>
+        <a
+          href="tel:9194016089"
+          class="leading-6 hover:text-accent transition-colors"
+          >919.401.6089</a
+        >
+      </div>
+      <div
+        class="flex flex-col gap-2 items-start max-w-[800px] w-full text-base text-text-primary"
+      >
+        <p class="font-bold uppercase">Service Area</p>
+        <p class="leading-6">Durham, Chapel Hill &amp; Orange County</p>
+      </div>
+      <div
+        class="flex flex-col gap-2 items-start max-w-[800px] w-full text-base"
+      >
+        <p class="font-bold uppercase text-text-primary">Payment</p>
+        <a
+          href="https://www.payerexpress.com/ebp/TBCREMODEL/"
+          target="_blank"
+          class="leading-6 text-accent underline hover:opacity-80 transition-opacity"
+          >Pay an invoice online &rarr;</a
+        >
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-bg flex flex-col gap-6 items-center px-4 py-8">
+      <div
+        class="flex gap-6 items-center font-bold text-base text-text-alt uppercase"
+      >
+        <span>EPA Certified</span>
+        <span>BBB Accredited</span>
+      </div>
+      <p class="text-sm text-text-primary text-center leading-5 max-w-[800px]">
+        &copy; 2026 Taylor Brothers Construction, LLC. All rights reserved.
+      </p>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileNav = document.getElementById("mobile-nav");
+      menuToggle.addEventListener("click", () => {
+        mobileNav.classList.toggle("hidden");
+        mobileNav.classList.toggle("flex");
+      });
+
+      // Close mobile nav on link click
+      mobileNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileNav.classList.add("hidden");
+          mobileNav.classList.remove("flex");
+        });
+      });
+
+      // Lightbox
+      const photos = [
+        { src: "images/nook.jpeg", alt: "Kitchen nook" },
+        { src: "images/kitchen.jpeg", alt: "Kitchen remodel" },
+        { src: "images/hood.jpeg", alt: "Kitchen hood" },
+        { src: "images/counters.jpeg", alt: "Kitchen counters" },
+      ];
+      let currentIndex = 0;
+
+      function openLightbox(index) {
+        currentIndex = index;
+        updateLightbox();
+        document.getElementById("lightbox").classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox(e, force) {
+        if (force || e.target === document.getElementById("lightbox")) {
+          document.getElementById("lightbox").classList.remove("active");
+          document.body.style.overflow = "";
+        }
+      }
+
+      function prevImage(e) {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+        updateLightbox();
+      }
+
+      function nextImage(e) {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % photos.length;
+        updateLightbox();
+      }
+
+      function updateLightbox() {
+        document.getElementById("lb-image").src = photos[currentIndex].src;
+        document.getElementById("lb-image").alt = photos[currentIndex].alt;
+
+        const strip = document.getElementById("lb-thumbnails");
+        strip.innerHTML = photos
+          .map(
+            (p, i) =>
+              `<img src="${p.src}" alt="${p.alt}" class="h-16 w-[93px] object-cover cursor-pointer rounded ${i === currentIndex ? "ring-2 ring-accent opacity-100" : "opacity-50 hover:opacity-75"} transition-opacity" onclick="event.stopPropagation(); openLightbox(${i})">`,
+          )
+          .join("");
+      }
+
+      // Keyboard navigation for lightbox
+      document.addEventListener("keydown", (e) => {
+        if (!document.getElementById("lightbox").classList.contains("active"))
+          return;
+        if (e.key === "Escape") closeLightbox(e, true);
+        if (e.key === "ArrowLeft") {
+          prevImage(e);
+        }
+        if (e.key === "ArrowRight") {
+          nextImage(e);
+        }
+      });
+    </script>
+  </body>
+</html>
